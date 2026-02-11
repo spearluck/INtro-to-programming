@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#orderForm {
+    background-color: #1e9cb3;
+    border: 24px solid rgb(23, 190, 93);
+    border-radius: 8px;
+    padding: 44px;
+    margin: 32px;
+    box-shadow: 18px 15px 32px #9c3131;
+}
