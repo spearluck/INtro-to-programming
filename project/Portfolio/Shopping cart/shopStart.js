@@ -1,0 +1,45 @@
+let itemCodes = [1, 2, 3, 4];
+let itemList = ["Coke", "Kit Kat", "Bar One", "Fanta"];
+let itemCosts = [7.5, 9.5, 8.5, 7.5];
+
+let quantities = [0, 0, 0, 0];
+let lineTotals = [0, 0, 0, 0];
+let grandTotal = 0;
+
+function addToCart(pos) {
+    quantities[pos] += 1;
+    lineTotals[pos] = itemCosts[pos] * quantities[pos];
+    grandTotal += itemCosts[pos];
+
+    buildTable();
+}
+
+function buildTable() {
+    let output = "<table border='1'>";
+    output += "<tr>";
+    output += "<th>Code</th>";
+    output += "<th>Product</th>";
+    output += "<th>Price</th>";
+    output += "<th>Qty</th>";
+    output += "<th>Total</th>";
+    output += "<th>Add</th>";
+    output += "</tr>";
+
+    for (let i = 0; i < itemList.length; i++) {
+        output += "<tr>";
+        output += "<td>" + itemCodes[i] + "</td>";
+        output += "<td>" + itemList[i] + "</td>";
+        output += "<td>" + itemCosts[i].toFixed(2) + "</td>";
+        output += "<td>" + quantities[i] + "</td>";
+        output += "<td>" + lineTotals[i].toFixed(2) + "</td>";
+        output += "<td><button onclick='addToCart(" + i + ")'>Add</button></td>";
+        output += "</tr>";
+    }
+
+    output += "</table>";
+    output += "<p><strong>Total Due: R" + grandTotal.toFixed(2) + "</strong></p>";
+
+    document.getElementById("cart").innerHTML = output;
+}
+
+window.onload = buildTable;
